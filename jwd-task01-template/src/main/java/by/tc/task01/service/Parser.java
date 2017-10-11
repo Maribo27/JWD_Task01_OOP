@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Parser {
-    private String path = "JWD_Task01_OOP\\jwd-task01-template\\src\\main\\resources\\appliances_db.txt";
+    private String path = "resources\\appliances_db.txt";
 
     public Parser(String path) {
         this.path = path;
