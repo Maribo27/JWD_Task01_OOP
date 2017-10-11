@@ -27,16 +27,30 @@ public class Validator {
                 return false;
             }
 
-            boolean stringValue = key.toString().equals("OS") || key.toString().equals("FILTER_TYPE")
+            boolean stringValue;
+            stringValue = key.toString().equals("OS") || key.toString().equals("FILTER_TYPE")
                     || key.toString().equals("BAG_TYPE") || key.toString().equals("WAND_TYPE")
                     || key.toString().equals("COLOR") || key.toString().equals("FREQUENCY_RANGE");
+
             if (!stringValue) {
-                if (applianceCriteria.get(key).getClass().isInstance(String.class)){
+                Class valueClass;
+                valueClass = applianceCriteria.get(key).getClass();
+
+                if (valueClass == String.class) {
+                    return false;
+                }
+            } else {
+                Class valueClass;
+                valueClass = applianceCriteria.get(key).getClass();
+
+                boolean numberValue;
+                numberValue = valueClass == Double.class || valueClass == Integer.class;
+
+                if (numberValue) {
                     return false;
                 }
             }
         }
-
 		return true;
 	}
 }

@@ -11,11 +11,11 @@ import java.util.HashMap;
 public class Parser {
     private String path = "JWD_Task01_OOP\\jwd-task01-template\\src\\main\\resources\\appliances_db.txt";
 
-    public Parser(String path){
+    public Parser(String path) {
         this.path = path;
     }
 
-    public List<Map<String, Object>> parseFile(String applianceType){
+    public List<Map<String, Object>> parseFile(String applianceType) {
 
         Map<String, Object> appliance;
 
@@ -30,10 +30,10 @@ public class Parser {
                 String inputString;
                 inputString = input.nextLine();
 
-                if (inputString.matches(applianceType + " : ")){
+                if (inputString.contains(applianceType)) {
                     for (int charNumber = 0; charNumber < inputString.length(); charNumber++){
                         if (inputString.charAt(charNumber) == ':') {
-                            inputString = inputString.substring(charNumber + 1, inputString.length());
+                            inputString = inputString.substring(charNumber + 2, inputString.length());
                             break;
                         }
                     }
@@ -64,18 +64,24 @@ public class Parser {
         String name;
         name = "";
 
-        for (int charNumber = 0; charNumber < characteristics.length(); charNumber++){
-            if (characteristics.charAt(charNumber) == '='){
+        for (int charNumber = 0; charNumber < characteristics.length(); charNumber++) {
+            if (characteristics.charAt(charNumber) == '=') {
                 name = buffer.toString();
                 buffer = new StringBuilder();
             } else {
-                boolean endOfCharacteristic = characteristics.charAt(charNumber) == ',' || characteristics.charAt(charNumber) == ';';
-                if (endOfCharacteristic){
-                    if (buffer.toString().matches("^\\d+\\.?\\d*$")){
+                boolean endOfCharacteristic;
+                endOfCharacteristic = characteristics.charAt(charNumber) == ',' || characteristics.charAt(charNumber) == ';';
+
+                if (endOfCharacteristic) {
+                    String doubleNumber;
+                    doubleNumber = "^\\d+\\.?\\d*$";
+
+                    if (buffer.toString().matches(doubleNumber)) {
                         appliance.put(name, Double.parseDouble(buffer.toString()));
                     } else {
                         appliance.put(name, buffer.toString());
                     }
+
                     buffer = new StringBuilder();
                 } else {
                     buffer.append(characteristics.charAt(charNumber));
