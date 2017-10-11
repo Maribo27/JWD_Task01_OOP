@@ -46,7 +46,7 @@ public class Parser {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("file not found");
             return null;
         }
         return appliances;
