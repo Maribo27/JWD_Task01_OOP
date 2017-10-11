@@ -3,7 +3,7 @@ package by.tc.task01.dao.impl;
 import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
-import by.tc.task01.service.Parser;
+import by.tc.task01.dao.Parser;
 import java.util.Map;
 import java.util.Set;
 import java.util.List;
@@ -28,6 +28,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
         List<Map<String, Object>> appliances;
         appliances = parser.parseFile(criteria.getApplianceType());
+        if (appliances == null) {
+            return null;
+        }
 
         for (Map<String, Object> appliance : appliances) {
             int numberOfCoincidences;

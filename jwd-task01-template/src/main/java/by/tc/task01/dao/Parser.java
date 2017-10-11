@@ -1,4 +1,4 @@
-package by.tc.task01.service;
+package by.tc.task01.dao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Parser {
-    private String path = "resources\\appliances_db.txt";
+    private String path;
 
     public Parser(String path) {
         this.path = path;
