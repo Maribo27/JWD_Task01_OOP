@@ -10,6 +10,9 @@ public class TabletPC extends Appliance implements Serializable {
     private double flashMemoryCapacity;
     private String color;
 
+    public TabletPC() {
+    }
+
     public double getBatteryCapacity() {
         return batteryCapacity;
     }

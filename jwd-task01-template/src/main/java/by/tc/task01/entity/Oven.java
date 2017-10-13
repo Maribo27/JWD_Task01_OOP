@@ -11,6 +11,9 @@ public class Oven extends Appliance implements Serializable {
     private double height;
     private double width;
 
+    public Oven() {
+    }
+
     public double getPowerConsumption() {
         return powerConsumption;
     }

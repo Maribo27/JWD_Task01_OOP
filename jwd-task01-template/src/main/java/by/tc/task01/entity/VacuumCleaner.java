@@ -11,6 +11,9 @@ public class VacuumCleaner extends Appliance implements Serializable {
     private double motorSpeedRegulation;
     private double cleaningWidth;
 
+    public VacuumCleaner() {
+    }
+
     public double getPowerConsumption() {
         return powerConsumption;
     }

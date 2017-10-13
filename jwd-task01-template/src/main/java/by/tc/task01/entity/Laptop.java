@@ -11,6 +11,9 @@ public class Laptop extends Appliance implements Serializable{
     private double cpu;
     private double displayInches;
 
+    public Laptop() {
+    }
+
     public double getBatteryCapacity() {
         return batteryCapacity;
     }

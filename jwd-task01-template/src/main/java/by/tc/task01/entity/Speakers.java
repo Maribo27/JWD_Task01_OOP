@@ -9,6 +9,9 @@ public class Speakers extends Appliance implements Serializable {
     private String frequencyRange;
     private double coldLength;
 
+    public Speakers() {
+    }
+
     public double getPowerConsumption() {
         return powerConsumption;
     }

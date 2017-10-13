@@ -11,6 +11,9 @@ public class Refrigerator extends Appliance implements Serializable {
     private double height;
     private double width;
 
+    public Refrigerator() {
+    }
+
     public double getPowerConsumption() {
         return powerConsumption;
     }
